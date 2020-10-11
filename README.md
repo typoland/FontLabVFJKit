@@ -1,3 +1,3 @@
 # FontLabVFJKit
 
-A description of this package.
+Not finished at all Swift importer for FontLab *.vfj files
