@@ -9,7 +9,7 @@
 
 import Foundation
 public class FontLabMaster:Codable {
-    public var fontMaster:FontLabFontMaster
+    public var fontMaster: FontLabFontMaster
 }
 
 /*

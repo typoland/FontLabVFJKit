@@ -9,3 +9,5 @@
 import Foundation
 public typealias FontLabLocation  =  [String:Double]
 
+//extension Dictionary:Codable
+//where Key==String, Value==Double {}

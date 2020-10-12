@@ -9,7 +9,7 @@
 import Foundation
 public struct FontLabFontMaster: Codable{
     public var name:String
-    public var tsn: String
+    public var tsn: String?
     public var sgn: String?
     public var ffn: String?
     public var psn: String?
@@ -29,9 +29,15 @@ public struct FontLabFontMaster: Codable{
     public var safeBottom: Double
     public var underlineThickness: Double
     public var underlinePosition: Double
-    public var curveTension: Double
-    public var cornerTension: Double
-    public var inktrapLen: Double
-    public var location: FontLabLocation
+    public var curveTension: Double?
+    public var cornerTension: Double?
+    public var inktrapLen: Double?
+    public var location: FontLabLocation?
+    public var fontNote: String?
 }
 
+extension FontLabFontMaster : CustomStringConvertible {
+    public var description: String {
+        return "FontMaster \"\(name)\" \(location?.description ?? "no loc")\n\(fontNote ?? "")"
+    }
+}
