@@ -17,6 +17,6 @@ public class FontLabGlyph:Codable {
 
 extension FontLabGlyph: CustomStringConvertible {
     public var description: String {
-        return ("\(name)")
+        return ("\"\(name)\" \(layers?.count ?? 0) layers")
     }
 }

@@ -12,10 +12,10 @@ public class FontLabMaster:Codable {
     public var fontMaster: FontLabFontMaster
 }
 
-/*
-extension Master:CustomStringConvertible {
+
+extension FontLabMaster:CustomStringConvertible {
     public var description:String {
-        return "I'm Master \(name)"
+        return "\(fontMaster)"
     }
 }
-*/
+

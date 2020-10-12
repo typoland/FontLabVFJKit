@@ -38,6 +38,8 @@ public struct FontLabFontMaster: Codable{
 
 extension FontLabFontMaster : CustomStringConvertible {
     public var description: String {
-        return "FontMaster \"\(name)\" \(location?.description ?? "no loc")\n\(fontNote ?? "")"
+        let truncSize = 32
+        let note = fontNote?.count ?? 0 > truncSize ? fontNote!.prefix(truncSize)+"..." : ""
+        return "FontMaster \"\(name)\" \(location?.description ?? "no loc") FontNote:\"\(note)\""
     }
 }
