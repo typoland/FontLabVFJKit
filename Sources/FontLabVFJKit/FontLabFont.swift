@@ -20,9 +20,9 @@ public class FontLabFont:Codable {
         case masters
     }
 
-    public var upm:Int
-    public var glyphs:[FontLabGlyph]
-    public var axes: [FontLabAxis]
+    public var upm: Int
+    public var glyphs: [FontLabGlyph]
+    public var axes:   [FontLabAxis]
     public var masters:[FontLabMaster]
 }
 

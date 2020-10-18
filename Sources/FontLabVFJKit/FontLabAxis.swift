@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class FontLabAxis:Codable {
+public class FontLabAxis: Codable {
     public var name: String
     public var shortName: String
     public var tag: String
@@ -22,6 +22,6 @@ public class FontLabAxis:Codable {
 
 extension FontLabAxis: CustomStringConvertible {
     public var description: String {
-        return "Axis \(name) <\(shortName)>: \(minimum)...\(maximum)"
+        return "FontLabAxis \(name) <\(shortName)>: \(minimum)...\(maximum)"
     }
 }
