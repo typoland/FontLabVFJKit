@@ -515,3 +515,11 @@ extension FontLabColor {
     static let yellowgreen = FontLabColor(rawValue: "yellowgreen")
 }
 
+import SwiftUI
+extension FontLabColor {
+   public static var allColors: [Color] {
+        rgbaValues.map { (key, value) in
+            Color(.sRGB, red: Double(value.r), green: Double(value.g), blue: Double(value.b), opacity: Double(value.a))
+        }
+    }
+}
