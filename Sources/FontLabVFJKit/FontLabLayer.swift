@@ -11,7 +11,7 @@ import Foundation
 
 public class FontLabLayer:Codable {
     
-    public var name: String
+    public var name: String?
     public var colorFlag: Int?
     public var flags: Int?
     public var advanceWidth: Double
@@ -38,6 +38,6 @@ public class FontLabLayer:Codable {
 
 extension FontLabLayer: CustomStringConvertible {
     public var description: String {
-        return ("\(name)")
+        return ("\(name ?? "<no name>")")
     }
 }

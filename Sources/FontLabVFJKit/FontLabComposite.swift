@@ -9,7 +9,7 @@
 import Foundation
 
 public class FontLabComponent: Codable {
-    public var glyphName, layerName: String
+    public var glyphName, layerName: String?
 }
 
 public class FontLabComposite: Codable {

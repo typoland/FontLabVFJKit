@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class FontLabNode:Codable {
+public class FontLabNode: Codable {
     
     public init() {}
     
@@ -24,9 +24,7 @@ public class FontLabNode:Codable {
         case offQuad = "o"
         case servantX = "sx"
         case servantY = "sy"
-        
-        
-        
+         
         static var wordList:Set<String> {
             return Set(NodeType.allCases.map {$0.rawValue})
         }
