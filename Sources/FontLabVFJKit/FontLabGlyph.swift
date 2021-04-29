@@ -10,6 +10,7 @@ import Foundation
 
 public class FontLabGlyph:Codable {
     public var name:String = ""
+    public var unicode: String = ""
     public var colorFlag : Int? = nil
     public var layers:[FontLabLayer]? = nil
 }

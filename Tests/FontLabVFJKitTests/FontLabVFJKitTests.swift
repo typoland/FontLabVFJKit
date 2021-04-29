@@ -16,6 +16,10 @@ final class FontLabVFJKitTests: XCTestCase {
         let decoder = JSONDecoder.init()
         let vfjFile = try decoder.decode(VFJFile.self, from: data)
         print (vfjFile)
+        let font = vfjFile.font
+        for glyph in font.glyphs {
+            print (glyph)
+        }
         
     }
 
