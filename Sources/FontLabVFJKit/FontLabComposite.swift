@@ -27,7 +27,7 @@ public class FontLabBuilderGroup: Codable {
 
 public struct FontLabTransform: Codable {
     public var xScale, yScale: Double?
-    public var xOffset: Double?
+    public var xOffset, yOffset: Double?
 }
 
 
