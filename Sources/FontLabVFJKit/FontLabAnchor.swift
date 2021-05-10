@@ -22,7 +22,7 @@ public struct FontLabAnchor : Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         self.name = try container.decode(String.self, forKey: .name)
-        let pData = (try container.decode([Double].self, forKey: .point))
+        let pData = (try container.decode(String.self, forKey: .point)).split(separator: " ").map {Double($0)}.compactMap({$0})
             
         guard pData.count == 2 else {throw Errors.wrongDataForPoint(pData) }
         self.point = CGPoint(x: pData[0], y: pData[1])
@@ -31,6 +31,6 @@ public struct FontLabAnchor : Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: Keys.self)
         try container.encode(name, forKey: .name)
-        try container.encode([point.x, point.y], forKey: .point)
+        try container.encode("\(point.x)  \(point.y)", forKey: .point)
     }
 }
