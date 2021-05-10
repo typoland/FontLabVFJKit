@@ -9,6 +9,6 @@
 import Foundation
 
 public class FontLabGuideline:Codable {
-    public var vertical:Bool?
-    public var position:Double?
+    public var vertical: Bool?
+    public var position: Double?
 }

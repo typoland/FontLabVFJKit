@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 public enum FontLabElementDataUnion: Codable {
     case elementData(FontLabElementData)
     case imageData(FontLabImageData)

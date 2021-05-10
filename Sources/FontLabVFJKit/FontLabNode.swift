@@ -78,7 +78,7 @@ public class FontLabNode: Codable {
     public var points : [CGPoint] = []
     public var name : String? = nil
     
-    init(from string:String) throws {
+    init(from string: String) throws {
         let scanner =  Scanner.init(string: string)
         let spaceCharacterSet = CharacterSet.whitespacesAndNewlines
         scanner.charactersToBeSkipped = spaceCharacterSet

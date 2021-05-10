@@ -18,6 +18,7 @@ public class FontLabLayer:Codable {
     public var advanceHeight: Double?
     public var elements: [FontLabElement]?
     public var hints: [FontLabHint]?
+    public var anchors: [FontLabAnchor]?
     public var guidelines: [FontLabGuideline]?
     public var color: String?
     
