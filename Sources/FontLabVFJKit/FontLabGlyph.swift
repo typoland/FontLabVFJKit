@@ -15,7 +15,7 @@ public class FontLabGlyph:Codable {
     public var layers:[FontLabLayer]? = nil
     
     
-    #if DEBUG
+    //#if DEBUG
     enum Keys: CodingKey {
         case name
         case unicode
@@ -30,7 +30,7 @@ public class FontLabGlyph:Codable {
         self.layers = try container.decode([FontLabLayer]?.self, forKey: .layers)
         print (self.name)
     }
-    #endif
+    //#endif
 }
 
 

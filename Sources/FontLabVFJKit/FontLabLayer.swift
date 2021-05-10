@@ -34,7 +34,7 @@ public class FontLabLayer: Codable {
         color = nil
     }
     
-    #if DEBUG
+//#if DEBUG
     
     enum Keys: CodingKey {
         case name
@@ -63,7 +63,7 @@ public class FontLabLayer: Codable {
         print ("Layer:", self.name ?? "NO NAME")
     }
     
-    #endif
+    //#endif
 }
 
 
