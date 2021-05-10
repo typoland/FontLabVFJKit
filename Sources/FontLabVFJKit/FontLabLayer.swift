@@ -51,8 +51,8 @@ public class FontLabLayer: Codable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         self.name = try container.decode(String?.self, forKey: .name)
-        self.colorFlag = try container.decode(Int?.self, forKey: .colorFlag)
-        self.flags = try container.decode(Int?.self, forKey: .flags)
+        self.colorFlag = try? container.decode(Int?.self, forKey: .colorFlag)
+        self.flags = try? container.decode(Int?.self, forKey: .flags)
         self.advanceWidth = try container.decode(Double.self, forKey: .advanceWidth)
         self.advanceHeight = try? container.decode(Double?.self, forKey: .advanceHeight)
         self.elements = try? container.decode([FontLabElement]?.self, forKey: .elements)
