@@ -15,7 +15,7 @@ public class FontLabGlyph:Codable {
     public var layers:[FontLabLayer]? = nil
     
     
-    //MARK: for debug only
+    #if DEBUG
     enum Keys: CodingKey {
         case name
         case unicode
@@ -24,12 +24,13 @@ public class FontLabGlyph:Codable {
     }
     public required init(from decoder: Decoder) throws {
         
-        let containr = try decoder.container(keyedBy: Keys.self)
-        self.name = try containr.decode(String.self, forKey: .name)
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.name = try container.decode(String.self, forKey: .name)
         //self.colorFlag = try containr.decode(Int?.self, forKey: .colorFlag)
-        self.layers = try containr.decode([FontLabLayer]?.self, forKey: .layers)
+        self.layers = try container.decode([FontLabLayer]?.self, forKey: .layers)
         print (self.name)
     }
+    #endif
 }
 
 

@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class FontLabLayer:Codable {
+public class FontLabLayer: Codable {
     
     public var name: String?
     public var colorFlag: Int?
@@ -33,7 +33,37 @@ public class FontLabLayer:Codable {
         guidelines = nil
         color = nil
     }
-
+    
+    #if DEBUG
+    
+    enum Keys: CodingKey {
+        case name
+        case colorFlag
+        case flags
+        case advanceWidth
+        case advanceHeight
+        case elements
+        case hints
+        case anchors
+        case guidelines
+        case color
+    }
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Keys.self)
+        self.name = try container.decode(String?.self, forKey: .name)
+        self.colorFlag = try container.decode(Int?.self, forKey: .colorFlag)
+        self.flags = try container.decode(Int?.self, forKey: .flags)
+        self.advanceWidth = try container.decode(Double.self, forKey: .advanceWidth)
+        self.advanceHeight = try container.decode(Double?.self, forKey: .advanceHeight)
+        self.elements = try container.decode([FontLabElement]?.self, forKey: .elements)
+        self.hints = try container.decode([FontLabHint]?.self, forKey: .hints)
+        self.anchors = try container.decode([FontLabAnchor]?.self, forKey: .anchors)
+        self.guidelines = try container.decode([FontLabGuideline]?.self, forKey: .guidelines)
+        self.color = try container.decode(String?.self, forKey: .color)
+        print ("Layer:", self.name ?? "NO NAME")
+    }
+    
+    #endif
 }
 
 
