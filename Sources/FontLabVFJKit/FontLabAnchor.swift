@@ -22,10 +22,12 @@ public struct FontLabAnchor : Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         self.name = try container.decode(String.self, forKey: .name)
-        var pData = (try container.decode(String.self, forKey: .point)).split(separator: " ").map {Double($0)}.compactMap({$0})
-            
-        if pData.count != 2 {pData = [0,0] }
-        self.point = CGPoint(x: pData[0], y: pData[1])
+        if let pData = (try? container.decode(String.self, forKey: .point)), pData.count == 2 {
+            let p = pData.split(separator: " ").map {Double($0)}.compactMap({$0})
+            self.point = CGPoint(x: p[0], y: p[1])
+        } else {
+            self.point = CGPoint()
+        }
     }
     
     public func encode(to encoder: Encoder) throws {
