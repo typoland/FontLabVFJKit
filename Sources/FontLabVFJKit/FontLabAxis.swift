@@ -14,6 +14,8 @@ public class FontLabAxis: Codable {
     public var tag: String
     public var minimum: Double
     public var maximum: Double
+    public var designMinimum : Double
+    public var designMaximum : Double
     public var `default`: Double
     public var playStart: Double?
     public var playEnd: Double?
