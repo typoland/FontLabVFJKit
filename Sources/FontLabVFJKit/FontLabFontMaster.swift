@@ -24,11 +24,12 @@ public struct FontLabFontMaster: Codable{
     public var measurement: Double
     public var weight: Double
     public var width: Double
-    public var lineGap: Double
+    
     public var safeTop: Double
     public var safeBottom: Double
     public var underlineThickness: Double
     public var underlinePosition: Double
+    public var lineGap: Double?
     public var curveTension: Double?
     public var cornerTension: Double?
     public var inktrapLen: Double?
