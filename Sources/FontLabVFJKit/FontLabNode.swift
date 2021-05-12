@@ -79,6 +79,7 @@ public class FontLabNode: Codable {
     public var name : String? = nil
     
     init(from string: String) throws {
+        print (string)
         let scanner =  Scanner.init(string: string)
         //let spaceCharacterSet =
         scanner.charactersToBeSkipped = CharacterSet.whitespacesAndNewlines
@@ -107,6 +108,7 @@ public class FontLabNode: Codable {
             }
             name = dict["n"]
         }
+        print (self)
     }
 }
 
