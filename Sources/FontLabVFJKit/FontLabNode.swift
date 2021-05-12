@@ -79,18 +79,13 @@ public class FontLabNode: Codable {
     public var name : String? = nil
     
     init(from string: String) throws {
-        print (string)
         let scanner =  Scanner.init(string: string)
-        //let spaceCharacterSet =
         scanner.charactersToBeSkipped = CharacterSet.whitespacesAndNewlines
         var numbers: [CGFloat] = []
         while let number = scanner.scanFloat(){
             numbers.append(CGFloat (number))
         }
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
-//        if !(points.count != 1 || points.count != 3){
-//            throw errors.wrongPointsNumber(nr: points.count)
-//        }
 
         for nodeType in NodeType.allCases {
             if nodeType.inside(text: string) {
@@ -102,13 +97,10 @@ public class FontLabNode: Codable {
             let r2 = string.range(of: "}")?.lowerBound {
             let s = String(string[r1..<r2]).split(separator: ",").map {$0.split(separator: ":")}
             let dict = s.reduce (into: [String:String]()) { (dict, element) in
-                //var dict = dict
                 dict[String(element[0])] = String(element[1].dropFirst().dropLast())
-                //return dict
             }
             name = dict["n"]
         }
-        print (self)
     }
 }
 
