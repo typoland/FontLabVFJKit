@@ -60,7 +60,6 @@ public class FontLabLayer: Codable {
         self.anchors = try? container.decode([FontLabAnchor]?.self, forKey: .anchors)
         self.guidelines = try? container.decode([FontLabGuideline]?.self, forKey: .guidelines)
         self.color = try container.decode(String?.self, forKey: .color)
-        //print ("Layer:", self.name ?? "NO NAME")
     }
     
     //#endif
