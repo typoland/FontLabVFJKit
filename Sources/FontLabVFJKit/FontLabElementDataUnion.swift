@@ -43,3 +43,12 @@ public enum FontLabElementDataUnion: Codable {
         }
     }
 }
+
+extension FontLabElementDataUnion: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .elementData(let elementData): return elementData.description
+        case .imageData(let image): return "image \(image)"
+        }
+    }
+}
