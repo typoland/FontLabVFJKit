@@ -80,14 +80,12 @@ public class FontLabNode: Codable {
     
     init(from string: String) throws {
         let scanner =  Scanner.init(string: string)
-        let spaceCharacterSet = CharacterSet.whitespacesAndNewlines
-        scanner.charactersToBeSkipped = spaceCharacterSet
-        var number: Float = 0
+        //let spaceCharacterSet =
+        scanner.charactersToBeSkipped = CharacterSet.whitespacesAndNewlines
         var numbers: [CGFloat] = []
-        while scanner.scanFloat(&number){
+        while let number = scanner.scanFloat(){
             numbers.append(CGFloat (number))
         }
-
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
 //        if !(points.count != 1 || points.count != 3){
 //            throw errors.wrongPointsNumber(nr: points.count)
@@ -107,13 +105,13 @@ public class FontLabNode: Codable {
                 dict[String(element[0])] = String(element[1].dropFirst().dropLast())
                 //return dict
             }
-            name = dict["p"]
+            name = dict["n"]
         }
     }
 }
 
 extension FontLabNode:CustomStringConvertible {
     public var description: String {
-        return "\(name != nil ? name!+":" : "") \(nodeTypes != [] ? nodeTypes.reduce("", {$0 + "\($1) "}).dropLast() : "") \(points)"
+        return "\(name != nil ? name!+":" : "no name") \(nodeTypes != [] ? nodeTypes.reduce("", {$0 + "\($1) "}).dropLast() : "") \(points)"
     }
 }
