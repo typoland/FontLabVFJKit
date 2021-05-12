@@ -17,7 +17,7 @@ public class FontLabElementData: Codable {
 extension FontLabElementData: CustomStringConvertible {
     public var description: String {
         return "\nContours" + (contours ?? []).reduce(into: "\nContour \(name ?? "no name")\n", {result, elemData in
-            result += elemData.nodes.reduce(into: "\t") { res, node in
+            result += elemData.nodes.reduce(into: "") { res, node in
                 res += "\tnode: \(node.description)\n"
             }
         })
