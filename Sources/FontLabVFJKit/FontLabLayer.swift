@@ -69,6 +69,6 @@ public class FontLabLayer: Codable {
 
 extension FontLabLayer: CustomStringConvertible {
     public var description: String {
-        return ("\(name ?? "<no name>")")
+        return ("FLLayer name: \(name ?? "<no name>")")
     }
 }
