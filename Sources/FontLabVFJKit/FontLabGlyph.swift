@@ -32,8 +32,8 @@ public class FontLabGlyph:Codable {
         print ()
         print (self.name)
         for layer in layers ?? [] {
-            print (layer.name ?? "unnamed layer")
-            print (layer.elements ?? [])
+            print ("Layer name:", layer.name ?? "unnamed layer")
+            layer.elements?.forEach({print ("Layer element:\n\t", $0)})
         }
         print ("...done")
     }
