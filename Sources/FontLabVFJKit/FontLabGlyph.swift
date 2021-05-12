@@ -29,6 +29,9 @@ public class FontLabGlyph:Codable {
         print (self.name)
         //self.colorFlag = try containr.decode(Int?.self, forKey: .colorFlag)
         self.layers = try? container.decode([FontLabLayer]?.self, forKey: .layers)
+        for layer in layers ?? [] {
+            print (self.name, layer.elements ?? [])
+        }
         print ("...done")
     }
     //#endif
