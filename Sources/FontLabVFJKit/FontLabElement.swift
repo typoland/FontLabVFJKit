@@ -16,3 +16,8 @@ public class FontLabElement: Codable {
     public var nonSpacing: Bool?
 }
 
+extension FontLabElement: CustomStringConvertible {
+    public var description: String {
+        "\(elementData)"
+    }
+}

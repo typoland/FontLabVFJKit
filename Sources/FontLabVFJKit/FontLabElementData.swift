@@ -14,3 +14,10 @@ public class FontLabElementData: Codable {
     public var contours: [FontLabContour]?
 }
 
+extension FontLabElementData: CustomStringConvertible {
+    public var description: String {
+        return (contours ?? []).reduce(into: "", {result, elemData in
+            result += elemData.nodes.description
+        })
+    }
+}
