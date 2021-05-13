@@ -11,3 +11,9 @@ import Foundation
 public class FontLabContour: Codable {
     public var nodes: [FontLabNode]
 }
+
+extension FontLabContour: CustomStringConvertible {
+    public var description: String {
+        return "FL Layer, \(nodes.count) node \(nodes.count == 1 ? "" : "s")"
+    }
+}
