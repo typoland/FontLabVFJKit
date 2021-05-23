@@ -88,15 +88,12 @@ public class FontLabNode: Codable {
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
 
         for nodeType in NodeType.allCases {
-            print (string, nodeType.rawValue, terminator: "")
             if nodeType.inside(text: string) {
-                print ("Yes")
                 nodeTypes.insert(nodeType)
-            } else {
-                print ("No")
             }
         }
-
+        print (nodeTypes.map({$0.rawValue}))
+        
         if let r1 = string.range(of: "{")?.upperBound,
             let r2 = string.range(of: "}")?.lowerBound {
             let s = String(string[r1..<r2]).split(separator: ",").map {$0.split(separator: ":")}
