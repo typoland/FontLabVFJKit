@@ -102,11 +102,14 @@ public class FontLabNode: Codable {
             }
             name = dict["n"]
         }
+        print (string)
+        print (self)
+        print ()
     }
 }
 
 extension FontLabNode:CustomStringConvertible {
     public var description: String {
-        return "\(name != nil ? name!+":" : "no name") \(nodeTypes != [] ? nodeTypes.reduce("", {$0 + "\($1) "}).dropLast() : "") \(points)"
+        return "\(name != nil ? "\"\(name!):\"" : "") \(nodeTypes != [] ? nodeTypes.reduce("", {$0 + "\($1) "}) : "") \(points)"
     }
 }
