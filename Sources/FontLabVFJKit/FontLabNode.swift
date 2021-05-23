@@ -29,14 +29,17 @@ public class FontLabNode: Codable {
             return Set(NodeType.allCases.map {$0.rawValue})
         }
         
-        var re:NSRegularExpression {
-            let pattern = "\\b\(self.rawValue)\\s"
-            return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
-        }
-
+//        var re:NSRegularExpression {
+//            let pattern = "\\b\(self.rawValue)\\s"
+//            return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
+//        }
+        
+        
         func inside(text: String) -> Bool {
-            let found = self.re.matches(in: text, options: [], range: NSMakeRange(0, text.count))
-            return found.count > 0
+            let strings = text.split(separator: " ").map{String($0)}
+            return strings.contains(self.rawValue)
+            //let found = self.re.matches(in: text, options: [], range: NSMakeRange(0, text.count))
+            //return found.count > 0
         }
     }
     
@@ -89,7 +92,7 @@ public class FontLabNode: Codable {
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
 
         for nodeType in NodeType.allCases {
-            print (nodeType.rawValue, string, terminator: "")
+            print (nodeType.rawValue, string, terminator: " - ")
             if nodeType.inside(text: string) {
                 print (nodeType.rawValue,"is in", string)
                 nodeTypes.insert(nodeType)
