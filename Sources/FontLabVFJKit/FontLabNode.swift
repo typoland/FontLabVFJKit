@@ -110,6 +110,6 @@ public class FontLabNode: Codable {
 
 extension FontLabNode:CustomStringConvertible {
     public var description: String {
-        return "\(name != nil ? "\"\(name!):\"" : "") \(nodeTypes != [] ? nodeTypes.reduce("", {$0 + "\($1) "}) : "") \(points)"
+        return "\(name != nil ? "\"\(name!):\"" : "") \(nodeTypes.map({$0.rawValue})) \(points)"
     }
 }
