@@ -28,19 +28,10 @@ public class FontLabNode: Codable {
         static var wordList:Set<String> {
             return Set(NodeType.allCases.map {$0.rawValue})
         }
-        
-//        var re:NSRegularExpression {
-//            let pattern = "\\b\(self.rawValue)\\s"
-//            return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
-//        }
-        
-        
+                
         func inside(text: String) -> Bool {
             let strings = text.split(separator: " ").map{String($0)}
-            print (strings)
             return strings.contains(self.rawValue)
-            //let found = self.re.matches(in: text, options: [], range: NSMakeRange(0, text.count))
-            //return found.count > 0
         }
     }
     
@@ -93,16 +84,10 @@ public class FontLabNode: Codable {
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
 
         for nodeType in NodeType.allCases {
-            print (nodeType.rawValue, string, terminator: " - ")
             if nodeType.inside(text: string) {
-                print (nodeType.rawValue,"is in", string)
                 nodeTypes.insert(nodeType)
-            } else {
-                print ("NO")
             }
         }
-        print (nodeTypes.map({$0.rawValue}))
-        print ()
         if let r1 = string.range(of: "{")?.upperBound,
             let r2 = string.range(of: "}")?.lowerBound {
             let s = String(string[r1..<r2]).split(separator: ",").map {$0.split(separator: ":")}
@@ -111,9 +96,6 @@ public class FontLabNode: Codable {
             }
             name = dict["n"]
         }
-        print (string)
-        print (self)
-        print ()
     }
 }
 
