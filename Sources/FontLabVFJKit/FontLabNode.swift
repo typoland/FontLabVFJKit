@@ -30,7 +30,7 @@ public class FontLabNode: Codable {
         }
         
         var re:NSRegularExpression {
-            let pattern = "\\b\(self.rawValue)"
+            let pattern = #"\b\(self.rawValue)\s"#
             return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
         }
 
@@ -62,6 +62,7 @@ public class FontLabNode: Codable {
     //var nodeTypeCharacterSet = NodeType.characterSet
     public var nodeTypes:Set<NodeType> = []
     
+    // repeat for g2, yservant etc..
     public var servantX: Bool {
         get {
             return nodeTypes.contains(.servantX)
@@ -92,8 +93,7 @@ public class FontLabNode: Codable {
                 nodeTypes.insert(nodeType)
             }
         }
-        print (nodeTypes.map({$0.rawValue}))
-        
+                
         if let r1 = string.range(of: "{")?.upperBound,
             let r2 = string.range(of: "}")?.lowerBound {
             let s = String(string[r1..<r2]).split(separator: ",").map {$0.split(separator: ":")}
