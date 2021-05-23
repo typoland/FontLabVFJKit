@@ -30,7 +30,7 @@ public class FontLabNode: Codable {
         }
         
         var re:NSRegularExpression {
-            let pattern = #"\b\(self.rawValue)\s"#
+            let pattern = "\\b\(self.rawValue)\\s"
             return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
         }
 
