@@ -18,6 +18,6 @@ public class FontLabElement: Codable {
 
 extension FontLabElement: CustomStringConvertible {
     public var description: String {
-        "\(elementData)"
+        "\(elementData?.description ?? "No element data")"
     }
 }

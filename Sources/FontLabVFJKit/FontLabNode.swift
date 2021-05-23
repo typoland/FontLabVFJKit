@@ -13,7 +13,7 @@ public class FontLabNode: Codable {
     public init() {}
     
     enum errors:Error {
-        case wrongPointsNumber(nr:Int) // 1 or 3
+        case wrongPointsNumber(nr:Int) 
         case unknownType(type: String) //sgc
     }
     
@@ -34,7 +34,7 @@ public class FontLabNode: Codable {
             return try! NSRegularExpression.init(pattern: "\(pattern)", options: [NSRegularExpression.Options.caseInsensitive])
         }
 
-        func inside(text:String) -> Bool {
+        func inside(text: String) -> Bool {
             let found = self.re.matches(in: text, options: [], range: NSMakeRange(0, text.count))
             return found.count > 0
         }
@@ -88,8 +88,12 @@ public class FontLabNode: Codable {
         points = (0..<numbers.count/2).map{NSMakePoint(numbers[$0*2], numbers[$0*2+1])}
 
         for nodeType in NodeType.allCases {
+            print (string, nodeType.rawValue, terminator: "")
             if nodeType.inside(text: string) {
+                print ("Yes")
                 nodeTypes.insert(nodeType)
+            } else {
+                print ("No")
             }
         }
 
