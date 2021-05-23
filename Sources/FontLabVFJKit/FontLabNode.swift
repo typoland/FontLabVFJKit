@@ -37,6 +37,7 @@ public class FontLabNode: Codable {
         
         func inside(text: String) -> Bool {
             let strings = text.split(separator: " ").map{String($0)}
+            print (strings)
             return strings.contains(self.rawValue)
             //let found = self.re.matches(in: text, options: [], range: NSMakeRange(0, text.count))
             //return found.count > 0
